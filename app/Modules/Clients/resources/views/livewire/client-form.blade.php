@@ -125,10 +125,13 @@
                 <div>
                     <label for="country" class="label">Country</label>
                     <select id="country" wire:model="country" class="input">
+                        <option value="">Select country</option>
+                        <option value="AU">Australia</option>
+                        <option value="CA">Canada</option>
+                        <option value="FR">France</option>
+                        <option value="DE">Germany</option>
                         <option value="GB">United Kingdom</option>
                         <option value="US">United States</option>
-                        <option value="CA">Canada</option>
-                        <option value="AU">Australia</option>
                     </select>
                     @error('country') <span class="text-sm text-red-600 dark:text-red-400">{{ $message }}</span> @enderror
                 </div>
@@ -152,7 +155,7 @@
                 </div>
 
                 <div>
-                    <label for="annual_revenue" class="label">Annual Revenue (GBP)</label>
+                    <label for="annual_revenue" class="label">Annual Revenue</label>
                     <input type="number" id="annual_revenue" wire:model="annual_revenue" class="input" min="0" step="0.01">
                     @error('annual_revenue') <span class="text-sm text-red-600 dark:text-red-400">{{ $message }}</span> @enderror
                 </div>

@@ -33,7 +33,7 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('county')->nullable();
             $table->string('postcode')->nullable();
-            $table->string('country')->default('GB');
+            $table->string('country')->nullable();
 
             // Business information
             $table->string('industry')->nullable();

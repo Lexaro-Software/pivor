@@ -25,7 +25,7 @@ class ContactForm extends Component
     public string $city = '';
     public string $county = '';
     public string $postcode = '';
-    public string $country = 'GB';
+    public string $country = '';
     public string $linkedin_url = '';
     public string $status = 'active';
     public ?int $assigned_to = null;

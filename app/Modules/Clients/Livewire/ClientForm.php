@@ -24,7 +24,7 @@ class ClientForm extends Component
     public string $city = '';
     public string $county = '';
     public string $postcode = '';
-    public string $country = 'GB';
+    public string $country = '';
     public string $industry = '';
     public ?int $employee_count = null;
     public ?float $annual_revenue = null;

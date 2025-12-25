@@ -17,7 +17,7 @@ class ClientFactory extends Factory
             'name' => fake()->company(),
             'trading_name' => fake()->optional()->company(),
             'registration_number' => fake()->optional()->numerify('########'),
-            'vat_number' => fake()->optional()->numerify('GB#########'),
+            'vat_number' => fake()->optional()->numerify('VAT#########'),
             'type' => fake()->randomElement(['company', 'individual', 'organisation']),
             'status' => fake()->randomElement(['active', 'inactive', 'prospect', 'archived']),
             'email' => fake()->optional()->companyEmail(),
@@ -26,7 +26,7 @@ class ClientFactory extends Factory
             'address_line_1' => fake()->optional()->streetAddress(),
             'city' => fake()->optional()->city(),
             'postcode' => fake()->optional()->postcode(),
-            'country' => 'GB',
+            'country' => fake()->optional()->countryCode(),
             'industry' => fake()->optional()->randomElement(['Technology', 'Finance', 'Healthcare', 'Retail', 'Manufacturing']),
         ];
     }
