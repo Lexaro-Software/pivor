@@ -1,13 +1,13 @@
 <div>
     <!-- Welcome -->
     <div class="mb-8">
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Welcome back!</h2>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Welcome back, {{ $userName }}!</h2>
         <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Here's what's happening with your CRM today.</p>
     </div>
 
-    <!-- Stats -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <div class="card p-6">
+    <!-- Main Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <a href="{{ route('clients.index') }}" wire:navigate class="card p-6 hover:shadow-lg transition-shadow">
             <div class="flex items-center">
                 <div class="flex-shrink-0 p-3 bg-pivor-100 dark:bg-pivor-900/50 rounded-lg">
                     <svg class="w-6 h-6 text-pivor-600 dark:text-pivor-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -19,9 +19,9 @@
                     <p class="text-2xl font-semibold text-gray-900 dark:text-white">{{ $stats['total_clients'] }}</p>
                 </div>
             </div>
-        </div>
+        </a>
 
-        <div class="card p-6">
+        <a href="{{ route('clients.index', ['status' => 'active']) }}" wire:navigate class="card p-6 hover:shadow-lg transition-shadow">
             <div class="flex items-center">
                 <div class="flex-shrink-0 p-3 bg-green-100 dark:bg-green-900/50 rounded-lg">
                     <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -33,9 +33,9 @@
                     <p class="text-2xl font-semibold text-gray-900 dark:text-white">{{ $stats['active_clients'] }}</p>
                 </div>
             </div>
-        </div>
+        </a>
 
-        <div class="card p-6">
+        <a href="{{ route('contacts.index') }}" wire:navigate class="card p-6 hover:shadow-lg transition-shadow">
             <div class="flex items-center">
                 <div class="flex-shrink-0 p-3 bg-blue-100 dark:bg-blue-900/50 rounded-lg">
                     <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,9 +47,9 @@
                     <p class="text-2xl font-semibold text-gray-900 dark:text-white">{{ $stats['total_contacts'] }}</p>
                 </div>
             </div>
-        </div>
+        </a>
 
-        <div class="card p-6">
+        <a href="{{ route('communications.index', ['type' => 'task']) }}" wire:navigate class="card p-6 hover:shadow-lg transition-shadow">
             <div class="flex items-center">
                 <div class="flex-shrink-0 p-3 {{ $stats['overdue_tasks'] > 0 ? 'bg-red-100 dark:bg-red-900/50' : 'bg-yellow-100 dark:bg-yellow-900/50' }} rounded-lg">
                     <svg class="w-6 h-6 {{ $stats['overdue_tasks'] > 0 ? 'text-red-600 dark:text-red-400' : 'text-yellow-600 dark:text-yellow-400' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,6 +64,51 @@
                             <span class="text-sm text-red-600 dark:text-red-400">({{ $stats['overdue_tasks'] }} overdue)</span>
                         @endif
                     </p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Secondary Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <a href="{{ route('clients.index', ['status' => 'prospect']) }}" wire:navigate class="card p-4 hover:shadow-lg transition-shadow">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Prospects</p>
+                    <p class="text-xl font-semibold text-gray-900 dark:text-white">{{ $stats['prospects'] }}</p>
+                </div>
+                <div class="p-2 bg-orange-100 dark:bg-orange-900/50 rounded-lg">
+                    <svg class="w-5 h-5 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                </div>
+            </div>
+        </a>
+
+        <div class="card p-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">New This Month</p>
+                    <p class="text-xl font-semibold text-gray-900 dark:text-white">{{ $stats['new_clients_month'] }} clients</p>
+                </div>
+                <div class="p-2 bg-purple-100 dark:bg-purple-900/50 rounded-lg">
+                    <svg class="w-5 h-5 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">This Week</p>
+                    <p class="text-xl font-semibold text-gray-900 dark:text-white">{{ $stats['communications_week'] }} activities</p>
+                </div>
+                <div class="p-2 bg-cyan-100 dark:bg-cyan-900/50 rounded-lg">
+                    <svg class="w-5 h-5 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                    </svg>
                 </div>
             </div>
         </div>

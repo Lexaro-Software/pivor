@@ -56,6 +56,7 @@ class CommunicationList extends Component
     public function render()
     {
         $communications = Communication::query()
+            ->visibleTo(auth()->user())
             ->with(['client', 'contact', 'createdBy'])
             ->when($this->search, function ($query) {
                 $query->where('subject', 'like', '%' . $this->search . '%');

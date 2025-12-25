@@ -1,6 +1,10 @@
 <?php
 
 use App\Livewire\Dashboard;
+use App\Livewire\RoleList;
+use App\Livewire\RoleForm;
+use App\Livewire\UserList;
+use App\Livewire\UserForm;
 use Illuminate\Support\Facades\Route;
 
 // Public routes
@@ -14,6 +18,17 @@ Route::get('/', function () {
 // Authenticated routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
+
+    // Admin-only routes
+    Route::middleware(['role:admin'])->group(function () {
+        Route::get('/users', UserList::class)->name('users.index');
+        Route::get('/users/create', UserForm::class)->name('users.create');
+        Route::get('/users/{user}/edit', UserForm::class)->name('users.edit');
+
+        Route::get('/roles', RoleList::class)->name('roles.index');
+        Route::get('/roles/create', RoleForm::class)->name('roles.create');
+        Route::get('/roles/{role}/edit', RoleForm::class)->name('roles.edit');
+    });
 });
 
 // Auth routes

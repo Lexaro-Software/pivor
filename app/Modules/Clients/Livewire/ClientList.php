@@ -48,6 +48,7 @@ class ClientList extends Component
     public function render()
     {
         $clients = Client::query()
+            ->visibleTo(auth()->user())
             ->when($this->search, function ($query) {
                 $query->where(function ($q) {
                     $q->where('name', 'like', '%' . $this->search . '%')

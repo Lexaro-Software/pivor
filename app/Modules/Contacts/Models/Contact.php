@@ -5,6 +5,7 @@ namespace App\Modules\Contacts\Models;
 use App\Models\User;
 use App\Modules\Clients\Models\Client;
 use App\Modules\Communications\Models\Communication;
+use App\Traits\ScopedByUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -14,7 +15,7 @@ use Illuminate\Support\Str;
 
 class Contact extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, ScopedByUser;
 
     protected static function newFactory()
     {

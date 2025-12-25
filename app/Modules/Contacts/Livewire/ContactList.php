@@ -47,6 +47,7 @@ class ContactList extends Component
     public function render()
     {
         $contacts = Contact::query()
+            ->visibleTo(auth()->user())
             ->with('client')
             ->when($this->search, function ($query) {
                 $query->where(function ($q) {
