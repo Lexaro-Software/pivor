@@ -1,0 +1,165 @@
+<div>
+    <!-- Header -->
+    <div class="sm:flex sm:items-center sm:justify-between mb-6">
+        <div>
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Communications</h2>
+            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Track all interactions and follow-ups</p>
+        </div>
+        <div class="mt-4 sm:mt-0">
+            <a href="{{ route('communications.create') }}" wire:navigate class="btn-primary">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                </svg>
+                Add Communication
+            </a>
+        </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="card p-4 mb-6">
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+            <div class="sm:col-span-2">
+                <input type="text" wire:model.live.debounce.300ms="search" placeholder="Search communications..." class="input">
+            </div>
+            <div>
+                <select wire:model.live="type" class="input">
+                    <option value="">All Types</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                    <option value="meeting">Meeting</option>
+                    <option value="note">Note</option>
+                    <option value="task">Task</option>
+                </select>
+            </div>
+            <div>
+                <select wire:model.live="status" class="input">
+                    <option value="">All Statuses</option>
+                    <option value="pending">Pending</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flash Message -->
+    @if (session()->has('message'))
+        <div class="mb-4 p-4 bg-green-50 dark:bg-green-900/50 border border-green-200 dark:border-green-800 rounded-lg text-green-700 dark:text-green-300">
+            {{ session('message') }}
+        </div>
+    @endif
+
+    <!-- Table -->
+    <div class="card overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <thead class="bg-gray-50 dark:bg-gray-800">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Type</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider cursor-pointer hover:text-gray-700 dark:hover:text-gray-200" wire:click="sortBy('subject')">Subject</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Related To</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider cursor-pointer hover:text-gray-700 dark:hover:text-gray-200" wire:click="sortBy('created_at')">Date</th>
+                        <th scope="col" class="relative px-6 py-3">
+                            <span class="sr-only">Actions</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                    @forelse ($communications as $comm)
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                @php
+                                    $typeIcons = [
+                                        'email' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>',
+                                        'phone' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>',
+                                        'meeting' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>',
+                                        'note' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>',
+                                        'task' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>',
+                                    ];
+                                @endphp
+                                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-700">
+                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        {!! $typeIcons[$comm->type] ?? $typeIcons['note'] !!}
+                                    </svg>
+                                </span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <p class="text-sm font-medium text-gray-900 dark:text-white">{{ $comm->subject }}</p>
+                                @if ($comm->is_overdue)
+                                    <span class="text-xs text-red-600 dark:text-red-400">Overdue</span>
+                                @endif
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+                                @if ($comm->client)
+                                    <a href="{{ route('clients.show', $comm->client) }}" wire:navigate class="hover:text-pivor-600 dark:hover:text-pivor-400">
+                                        {{ $comm->client->display_name }}
+                                    </a>
+                                @elseif ($comm->contact)
+                                    <a href="{{ route('contacts.show', $comm->contact) }}" wire:navigate class="hover:text-pivor-600 dark:hover:text-pivor-400">
+                                        {{ $comm->contact->full_name }}
+                                    </a>
+                                @else
+                                    -
+                                @endif
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                @php
+                                    $statusColors = [
+                                        'pending' => 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-300',
+                                        'in_progress' => 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300',
+                                        'completed' => 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300',
+                                        'cancelled' => 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300',
+                                    ];
+                                @endphp
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium {{ $statusColors[$comm->status] ?? $statusColors['pending'] }} capitalize">
+                                    {{ str_replace('_', ' ', $comm->status) }}
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+                                {{ $comm->created_at->format('M d, Y') }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <div class="flex items-center justify-end space-x-2">
+                                    @if ($comm->is_task && $comm->status !== 'completed')
+                                        <button wire:click="markComplete({{ $comm->id }})" class="text-green-600 hover:text-green-900 dark:text-green-400 dark:hover:text-green-300">
+                                            Complete
+                                        </button>
+                                    @endif
+                                    <a href="{{ route('communications.edit', $comm) }}" wire:navigate class="text-pivor-600 hover:text-pivor-900 dark:text-pivor-400 dark:hover:text-pivor-300">
+                                        Edit
+                                    </a>
+                                    <button wire:click="deleteCommunication({{ $comm->id }})" wire:confirm="Are you sure?" class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300">
+                                        Delete
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="6" class="px-6 py-12 text-center">
+                                <div class="flex flex-col items-center">
+                                    <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                    </svg>
+                                    <h3 class="mt-4 text-sm font-medium text-gray-900 dark:text-white">No communications found</h3>
+                                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Start tracking your interactions.</p>
+                                    <a href="{{ route('communications.create') }}" wire:navigate class="mt-4 btn-primary">
+                                        Add Communication
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+
+        @if ($communications->hasPages())
+            <div class="px-6 py-4 border-t border-gray-200 dark:border-gray-700">
+                {{ $communications->links() }}
+            </div>
+        @endif
+    </div>
+</div>

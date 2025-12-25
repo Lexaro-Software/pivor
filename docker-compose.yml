@@ -1,0 +1,38 @@
+# Pivor CRM - Docker Compose
+# Simple deployment: docker compose up -d
+
+services:
+  pivor:
+    build:
+      context: .
+      target: production
+    container_name: pivor
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-8080}:80"
+    environment:
+      - APP_NAME=Pivor
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - APP_URL=${APP_URL:-http://localhost:8080}
+      - APP_KEY=${APP_KEY}
+      - DB_CONNECTION=sqlite
+      - DB_DATABASE=/var/www/html/database/database.sqlite
+      - SESSION_DRIVER=file
+      - CACHE_STORE=file
+      - QUEUE_CONNECTION=sync
+    volumes:
+      - pivor_data:/var/www/html/database
+      - pivor_storage:/var/www/html/storage
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/up"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  pivor_data:
+    driver: local
+  pivor_storage:
+    driver: local

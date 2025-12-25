@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Hide elements until Alpine.js initializes */
+[x-cloak] {
+    display: none !important;
+}
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/livewire/src/Features/SupportPagination/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../../app/Modules/**/*.blade.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Pivor brand colors */
+    --color-pivor-50: #f0f9ff;
+    --color-pivor-100: #e0f2fe;
+    --color-pivor-200: #bae6fd;
+    --color-pivor-300: #7dd3fc;
+    --color-pivor-400: #38bdf8;
+    --color-pivor-500: #0ea5e9;
+    --color-pivor-600: #0284c7;
+    --color-pivor-700: #0369a1;
+    --color-pivor-800: #075985;
+    --color-pivor-900: #0c4a6e;
+    --color-pivor-950: #082f49;
+}
+
+/* Base layer customizations */
+@layer base {
+    html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Pivor component classes */
+@layer components {
+    .btn {
+        @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+    }
+
+    .btn-primary {
+        @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-pivor-600 text-white hover:bg-pivor-700 focus:ring-pivor-500;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-gray-100 text-gray-700 hover:bg-gray-200 focus:ring-gray-500 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600;
+    }
+
+    .btn-danger {
+        @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+    }
+
+    .input {
+        @apply block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-pivor-500 focus:ring-pivor-500 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100;
+    }
+
+    .label {
+        @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+    }
+
+    .card {
+        @apply bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700;
+    }
+}
