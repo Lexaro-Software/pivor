@@ -7,7 +7,7 @@ The Clients module manages companies and organisations in your CRM.
 - Create and edit client profiles
 - Track company details (name, trading name, registration number, VAT)
 - Store contact information (email, phone, website)
-- Full address management with UK-friendly fields
+- Full address management
 - Status tracking (active, inactive, prospect, archived)
 - Assign clients to team members
 - Notes and internal comments
@@ -18,14 +18,14 @@ The Clients module manages companies and organisations in your CRM.
 |-------|-------------|
 | Name | Legal company name (required) |
 | Trading Name | Name the company trades under |
-| Registration Number | Companies House number |
-| VAT Number | UK VAT registration |
+| Registration Number | Company registration number |
+| VAT Number | VAT registration number |
 | Type | company, individual, organisation |
 | Status | active, inactive, prospect, archived |
 | Email | Primary contact email |
 | Phone | Main phone number |
 | Website | Company website |
-| Address | Full UK address fields |
+| Address | Full address fields |
 | Industry | Business sector |
 | Employee Count | Number of employees |
 | Annual Revenue | Yearly turnover |

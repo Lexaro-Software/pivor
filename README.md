@@ -5,7 +5,7 @@
 [![Laravel 12](https://img.shields.io/badge/Laravel-12-FF2D20.svg)](https://laravel.com)
 [![Livewire 3](https://img.shields.io/badge/Livewire-3-FB70A9.svg)](https://livewire.laravel.com)
 
-**Open Source, Self-Hosted CRM for UK SMEs**
+**Open Source, Self-Hosted CRM for Small Businesses**
 
 Pivor gives businesses full ownership of their customer data without cloud dependency. Built by [Lexaro](https://lexaro.io).
 
@@ -17,7 +17,6 @@ Most CRMs lock your data in the cloud, charge per-seat pricing, and force you in
 
 -   **Own Your Data** — Self-hosted means your customer data never leaves your servers. No vendor lock-in, no surprise price increases, no data mining.
 -   **No Per-Seat Pricing** — One install, unlimited users. Pay nothing or pay for support—your choice.
--   **UK-Focused** — Built with UK business conventions in mind: VAT numbers, Companies House integration ready, British address formats.
 -   **Simple by Design** — Not another bloated enterprise tool. Pivor does what you need without the complexity you don't.
 -   **Open Source** — AGPL-3.0 licensed. Inspect the code, modify it, contribute back. Transparency builds trust.
 
