@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Modules\Core\Livewire;
 
-use App\Models\Role;
-use App\Models\User;
+use App\Modules\Core\Models\Role;
+use App\Modules\Core\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
@@ -97,7 +97,7 @@ class UserForm extends Component
     {
         $roles = Role::orderBy('display_name')->get();
 
-        return view('livewire.user-form', [
+        return view('core::livewire.user-form', [
             'isEditing' => (bool) $this->user,
             'roles' => $roles,
         ])->layout('components.layouts.app', [

@@ -2,7 +2,7 @@
 
 namespace App\Modules\Contacts\Livewire;
 
-use App\Models\User;
+use App\Modules\Core\Models\User;
 use App\Modules\Clients\Models\Client;
 use App\Modules\Contacts\Models\Contact;
 use Livewire\Component;

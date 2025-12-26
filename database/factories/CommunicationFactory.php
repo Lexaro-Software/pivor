@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
+use App\Modules\Core\Models\User;
 use App\Modules\Clients\Models\Client;
 use App\Modules\Communications\Models\Communication;
 use App\Modules\Contacts\Models\Contact;

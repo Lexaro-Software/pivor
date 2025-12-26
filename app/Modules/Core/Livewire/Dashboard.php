@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Modules\Core\Livewire;
 
 use App\Modules\Clients\Models\Client;
 use App\Modules\Communications\Models\Communication;
@@ -49,7 +49,7 @@ class Dashboard extends Component
             ->take(5)
             ->get();
 
-        return view('livewire.dashboard', [
+        return view('core::livewire.dashboard', [
             'stats' => $stats,
             'recentClients' => $recentClients,
             'recentCommunications' => $recentCommunications,

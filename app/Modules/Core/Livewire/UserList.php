@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Modules\Core\Livewire;
 
-use App\Models\Role;
-use App\Models\User;
+use App\Modules\Core\Models\Role;
+use App\Modules\Core\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -61,7 +61,7 @@ class UserList extends Component
 
         $roles = Role::orderBy('display_name')->get();
 
-        return view('livewire.user-list', [
+        return view('core::livewire.user-list', [
             'users' => $users,
             'roles' => $roles,
         ])->layout('components.layouts.app', ['title' => 'Users']);

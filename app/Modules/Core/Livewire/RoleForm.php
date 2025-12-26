@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Modules\Core\Livewire;
 
-use App\Models\Permission;
-use App\Models\Role;
+use App\Modules\Core\Models\Permission;
+use App\Modules\Core\Models\Role;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 
@@ -113,7 +113,7 @@ class RoleForm extends Component
             ->get()
             ->groupBy('group');
 
-        return view('livewire.role-form', [
+        return view('core::livewire.role-form', [
             'isEditing' => (bool) $this->role,
             'isSystemRole' => $this->role?->is_system ?? false,
             'permissionsByGroup' => $permissionsByGroup,

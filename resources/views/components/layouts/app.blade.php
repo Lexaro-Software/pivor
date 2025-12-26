@@ -90,6 +90,24 @@
                     Communications
                 </a>
 
+                <div class="mt-6">
+                    <p class="px-3 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Data</p>
+                    <a href="{{ route('import') }}" wire:navigate onclick="closeSidebar()"
+                       class="flex items-center px-3 py-2 text-sm font-medium rounded-lg {{ request()->routeIs('import') ? 'bg-pivor-50 text-pivor-700 dark:bg-pivor-900/50 dark:text-pivor-300' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700' }}">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                        </svg>
+                        Import
+                    </a>
+                    <a href="{{ route('export') }}" wire:navigate onclick="closeSidebar()"
+                       class="flex items-center px-3 py-2 text-sm font-medium rounded-lg {{ request()->routeIs('export') ? 'bg-pivor-50 text-pivor-700 dark:bg-pivor-900/50 dark:text-pivor-300' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700' }}">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        Export
+                    </a>
+                </div>
+
                 @if(auth()->user()?->canManageUsers())
                     <div class="mt-6">
                         <p class="px-3 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Admin</p>
@@ -184,6 +202,24 @@
                     </svg>
                     Communications
                 </a>
+
+                <div class="mt-6">
+                    <p class="px-3 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Data</p>
+                    <a href="{{ route('import') }}" wire:navigate
+                       class="flex items-center px-3 py-2 text-sm font-medium rounded-lg {{ request()->routeIs('import') ? 'bg-pivor-50 text-pivor-700 dark:bg-pivor-900/50 dark:text-pivor-300' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700' }}">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                        </svg>
+                        Import
+                    </a>
+                    <a href="{{ route('export') }}" wire:navigate
+                       class="flex items-center px-3 py-2 text-sm font-medium rounded-lg {{ request()->routeIs('export') ? 'bg-pivor-50 text-pivor-700 dark:bg-pivor-900/50 dark:text-pivor-300' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700' }}">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        Export
+                    </a>
+                </div>
 
                 @if(auth()->user()?->canManageUsers())
                     <div class="mt-6">

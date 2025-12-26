@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
-use App\Models\Permission;
-use App\Models\Role;
-use App\Models\User;
+use App\Modules\Core\Models\Permission;
+use App\Modules\Core\Models\Role;
+use App\Modules\Core\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 

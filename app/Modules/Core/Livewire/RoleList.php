@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Modules\Core\Livewire;
 
-use App\Models\Role;
+use App\Modules\Core\Models\Role;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -54,7 +54,7 @@ class RoleList extends Component
             ->orderBy('display_name')
             ->paginate(10);
 
-        return view('livewire.role-list', [
+        return view('core::livewire.role-list', [
             'roles' => $roles,
         ])->layout('components.layouts.app', ['title' => 'Roles']);
     }
