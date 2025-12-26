@@ -12,16 +12,20 @@
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700" rel="stylesheet" />
 
     <!-- Prevent flash of wrong theme -->
-    <script>
+    <script data-navigate-track="reload">
         (function() {
-            var stored = localStorage.getItem('pivor-dark-mode');
-            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            var shouldBeDark = stored === 'true' || (stored === null && prefersDark);
-            if (shouldBeDark) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
+            function applyDarkMode() {
+                var stored = localStorage.getItem('pivor-dark-mode');
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var shouldBeDark = stored === 'true' || (stored === null && prefersDark);
+                if (shouldBeDark) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
             }
+            applyDarkMode();
+            document.addEventListener('livewire:navigated', applyDarkMode);
         })();
     </script>
 
