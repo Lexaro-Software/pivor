@@ -40,6 +40,31 @@ Pivor gives businesses full ownership of their customer data without cloud depen
 </p>
 
 <p align="center">
+  <img src="docs/screenshots/client-form.png" alt="Client Form" width="80%">
+  <br><em>Client Form - Add and edit client details</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/contact-form.png" alt="Contact Form" width="80%">
+  <br><em>Contact Form - Manage contact information</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/communication-form.png" alt="Communication Form" width="80%">
+  <br><em>Communication Form - Log emails, calls, meetings, and tasks</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/users.png" alt="User Management" width="80%">
+  <br><em>User Management - Admin controls for team access</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/roles.png" alt="Role Management" width="80%">
+  <br><em>Role Management - Configure permissions</em>
+</p>
+
+<p align="center">
   <img src="docs/screenshots/login.png" alt="Login" width="80%">
   <br><em>Login - Clean, simple authentication</em>
 </p>
