@@ -25,6 +25,8 @@ Most CRMs lock your data in the cloud, charge per-seat pricing, and force you in
 -   **Clients** — Manage companies and organisations with full contact details, status tracking, and notes
 -   **Contacts** — Track people and relationships with primary contact designation
 -   **Communications** — Log all interactions: emails, calls, meetings, tasks, and follow-ups
+-   **Multi-User Roles** — Role-based access control with admin, manager, and user roles with granular permissions
+-   **Import/Export** — CSV import with field mapping wizard and export for clients, contacts, and communications
 -   **Dashboard** — Overview of recent activity, pending tasks, and quick actions
 -   **Dark Mode** — Easy on the eyes, day or night
 -   **Self-Hosted** — Your data stays on your servers

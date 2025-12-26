@@ -3,9 +3,9 @@
 ## v1.1 (Next Release)
 
 - [ ] **Email Integration** - Connect Gmail/Outlook to automatically sync emails with clients and contacts
-- [ ] **Import/Export** - CSV import and export for clients, contacts, and communications
+- [x] **Import/Export** - CSV import and export for clients, contacts, and communications
 - [ ] **REST API** - Full API for integrations and mobile apps
-- [ ] **Multi-User Roles** - Role-based access control (admin, manager, user)
+- [x] **Multi-User Roles** - Role-based access control (admin, manager, user)
 
 ## Future Ideas
 
