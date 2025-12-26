@@ -3,8 +3,6 @@
 namespace App\Modules\Core\Providers;
 
 use App\Modules\Core\Livewire\Dashboard;
-use App\Modules\Core\Livewire\DataExport;
-use App\Modules\Core\Livewire\DataImport;
 use App\Modules\Core\Livewire\RoleForm;
 use App\Modules\Core\Livewire\RoleList;
 use App\Modules\Core\Livewire\UserForm;
@@ -33,8 +31,6 @@ class CoreServiceProvider extends ServiceProvider
 
         // Register Livewire components
         Livewire::component('dashboard', Dashboard::class);
-        Livewire::component('data-export', DataExport::class);
-        Livewire::component('data-import', DataImport::class);
         Livewire::component('role-form', RoleForm::class);
         Livewire::component('role-list', RoleList::class);
         Livewire::component('user-form', UserForm::class);

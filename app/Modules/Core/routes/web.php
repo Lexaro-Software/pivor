@@ -1,8 +1,6 @@
 <?php
 
 use App\Modules\Core\Livewire\Dashboard;
-use App\Modules\Core\Livewire\DataExport;
-use App\Modules\Core\Livewire\DataImport;
 use App\Modules\Core\Livewire\RoleForm;
 use App\Modules\Core\Livewire\RoleList;
 use App\Modules\Core\Livewire\UserForm;
@@ -20,10 +18,6 @@ Route::get('/', function () {
 // Authenticated routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
-
-    // Import/Export
-    Route::get('/import', DataImport::class)->name('import');
-    Route::get('/export', DataExport::class)->name('export');
 
     // Admin-only routes
     Route::middleware(['role:admin'])->group(function () {

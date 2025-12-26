@@ -13,6 +13,11 @@ Welcome to the Pivor documentation.
 - [Contacts](modules/contacts.md) - Managing people and relationships
 - [Communications](modules/communications.md) - Logging interactions and tasks
 
+## Features
+
+- [Import/Export](features/import-export.md) - CSV import and export functionality
+- [Roles & Permissions](features/roles-permissions.md) - Multi-user access control
+
 ## Development
 
 - [Architecture](development/architecture.md) - Project structure and patterns
