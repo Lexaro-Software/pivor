@@ -9,7 +9,42 @@
 
 Pivor gives businesses full ownership of their customer data without cloud dependency. Built by [Lexaro](https://lexaro.io).
 
-![Pivor Dashboard](docs/screenshot.png)
+## Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/dashboard.png" alt="Dashboard" width="80%">
+  <br><em>Dashboard - Overview of your CRM activity</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/clients.png" alt="Clients List" width="80%">
+  <br><em>Clients - Manage companies and organisations</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/dashboard-dark.png" alt="Dark Mode" width="80%">
+  <br><em>Dark Mode - Easy on the eyes</em>
+</p>
+
+<details>
+<summary>More screenshots</summary>
+
+<p align="center">
+  <img src="docs/screenshots/contacts.png" alt="Contacts" width="80%">
+  <br><em>Contacts - Track people and relationships</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/communications.png" alt="Communications" width="80%">
+  <br><em>Communications - Log all interactions</em>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/login.png" alt="Login" width="80%">
+  <br><em>Login - Clean, simple authentication</em>
+</p>
+
+</details>
 
 ## Why Pivor?
 

@@ -2,6 +2,7 @@
 
 ## v1.1 (Next Release)
 
+- [ ] **Email Reminders** - Scheduled email notifications for task follow-ups via custom SMTP configuration
 - [ ] **Email Integration** - Connect Gmail/Outlook to automatically sync emails with clients and contacts
 - [x] **Import/Export** - CSV import and export for clients, contacts, and communications
 - [ ] **REST API** - Full API for integrations and mobile apps
@@ -11,7 +12,6 @@
 
 - Global search across all modules
 - Tags and custom fields
-- Reminders and notifications
 - Activity / audit log
 - Calendar integration
 - Invoicing module
