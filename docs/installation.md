@@ -16,17 +16,17 @@ The fastest way to get Pivor running:
 git clone git@github.com:Lexaro-Software/pivor.git
 cd pivor
 
-# Copy environment file
-cp .env.example .env
-
-# Start containers
+# Start Pivor (database and migrations are handled automatically)
 docker compose up -d
-
-# Run migrations and seed data
-docker compose exec app php artisan migrate --seed
 
 # Access Pivor at http://localhost:8080
 ```
+
+The container automatically:
+- Creates the SQLite database
+- Runs migrations and seeds default data
+- Generates an APP_KEY if not set
+- Caches configuration for performance
 
 ## Local Development
 

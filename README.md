@@ -101,14 +101,8 @@ Most CRMs lock your data in the cloud, charge per-seat pricing, and force you in
 git clone git@github.com:Lexaro-Software/pivor.git
 cd pivor
 
-# Copy environment file
-cp .env.example .env
-
-# Start Pivor
+# Start Pivor (migrations run automatically)
 docker compose up -d
-
-# Run migrations
-docker compose exec app php artisan migrate --seed
 
 # Access at http://localhost:8080
 ```
