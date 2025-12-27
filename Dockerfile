@@ -8,6 +8,7 @@ RUN apk add --no-cache \
     nginx \
     supervisor \
     sqlite \
+    sqlite-dev \
     nodejs \
     npm \
     git \
