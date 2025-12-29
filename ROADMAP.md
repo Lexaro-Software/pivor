@@ -1,6 +1,6 @@
 # Roadmap
 
-## v1.1 (Next Release)
+## v1.1 (Released)
 
 - [x] **Email Reminders** - Scheduled email notifications for task follow-ups via custom SMTP configuration
 - [x] **Email Integration** - Two-way sync with Gmail and Outlook. Send emails directly from contact pages, automatically sync incoming/outgoing emails with matched contacts
