@@ -8,6 +8,10 @@
 - [ ] **REST API** - Full API for integrations and mobile apps
 - [x] **Multi-User Roles** - Role-based access control (admin, manager, user)
 
+## v1.2 (January 2026)
+
+- [ ] **Mailchimp Integration** - Sync contacts from Mailchimp lists into the CRM ([#7](https://github.com/Lexaro-Software/pivor/issues/7))
+
 ## Future Ideas
 
 - Global search across all modules
