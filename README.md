@@ -7,7 +7,7 @@
 
 **Open Source, Self-Hosted CRM for Small Businesses**
 
-Pivor gives businesses full ownership of their customer data without cloud dependency. Built by [Lexaro](https://lexaro.io).
+Pivor gives businesses full ownership of their customer data without cloud dependency. Built by Lexaro Software.
 
 ## Screenshots
 
@@ -192,11 +192,11 @@ MICROSOFT_CLIENT_ID=your-client-id
 MICROSOFT_CLIENT_SECRET=your-client-secret
 ```
 
-See [Email Integration Docs](docs/features/email-integration.md) for setup instructions.
+See [Email Integration Docs](https://pivor.pages.dev/docs/email-integration.html) for setup instructions.
 
 ### REST API
 
-To enable API access, users create tokens via `/api/tokens/create`. See [API Documentation](docs/features/api.md) for full endpoint reference.
+To enable API access, users create tokens via `/api/tokens/create`. See [API Documentation](https://pivor.pages.dev/docs/api.html) for full endpoint reference.
 
 ## Contributing
 
@@ -214,5 +214,5 @@ Pivor is open source under AGPL-3.0. Contributions welcome!
 
 ## Support
 
--   Documentation: [docs/](docs/)
+-   Documentation: [pivor.pages.dev/docs](https://pivor.pages.dev/docs/)
 -   Issues: [GitHub Issues](https://github.com/Lexaro-Software/pivor/issues)
