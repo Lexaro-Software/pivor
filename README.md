@@ -3,216 +3,62 @@
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![PHP 8.2+](https://img.shields.io/badge/PHP-8.2+-777BB4.svg)](https://php.net)
 [![Laravel 12](https://img.shields.io/badge/Laravel-12-FF2D20.svg)](https://laravel.com)
-[![Livewire 3](https://img.shields.io/badge/Livewire-3-FB70A9.svg)](https://livewire.laravel.com)
 
 **Open Source, Self-Hosted CRM for Small Businesses**
 
-Pivor gives businesses full ownership of their customer data without cloud dependency. Built by Lexaro Software.
+Own your customer data. No per-seat pricing, no cloud lock-in. Built by Lexaro Software.
 
-## Screenshots
+📖 **[Documentation](https://pivor.pages.dev/docs/)** · 🐛 **[Report Issue](https://github.com/Lexaro-Software/pivor/issues)** · 💬 **[Discussions](https://github.com/Lexaro-Software/pivor/discussions)**
 
 <p align="center">
   <img src="docs/screenshots/dashboard.png" alt="Dashboard" width="80%">
-  <br><em>Dashboard - Overview of your CRM activity</em>
 </p>
-
-<p align="center">
-  <img src="docs/screenshots/clients.png" alt="Clients List" width="80%">
-  <br><em>Clients - Manage companies and organisations</em>
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/dashboard-dark.png" alt="Dark Mode" width="80%">
-  <br><em>Dark Mode - Easy on the eyes</em>
-</p>
-
-<details>
-<summary>More screenshots</summary>
-
-<p align="center">
-  <img src="docs/screenshots/contacts.png" alt="Contacts" width="80%">
-  <br><em>Contacts - Track people and relationships</em>
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/communications.png" alt="Communications" width="80%">
-  <br><em>Communications - Log all interactions</em>
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/client-form.png" alt="Client Form" width="80%">
-  <br><em>Client Form - Add and edit client details</em>
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/contact-form.png" alt="Contact Form" width="80%">
-  <br><em>Contact Form - Manage contact information</em>
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/communication-form.png" alt="Communication Form" width="80%">
-  <br><em>Communication Form - Log emails, calls, meetings, and tasks</em>
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/users.png" alt="User Management" width="80%">
-  <br><em>User Management - Admin controls for team access</em>
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/roles.png" alt="Role Management" width="80%">
-  <br><em>Role Management - Configure permissions</em>
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/login.png" alt="Login" width="80%">
-  <br><em>Login - Clean, simple authentication</em>
-</p>
-
-</details>
-
-## Why Pivor?
-
-Most CRMs lock your data in the cloud, charge per-seat pricing, and force you into their ecosystem. Pivor is different:
-
--   **Own Your Data** — Self-hosted means your customer data never leaves your servers. No vendor lock-in, no surprise price increases, no data mining.
--   **No Per-Seat Pricing** — One install, unlimited users. Pay nothing or pay for support—your choice.
--   **Simple by Design** — Not another bloated enterprise tool. Pivor does what you need without the complexity you don't.
--   **Open Source** — AGPL-3.0 licensed. Inspect the code, modify it, contribute back. Transparency builds trust.
-
-## Features
-
--   **Clients** — Manage companies and organisations with full contact details, status tracking, and notes
--   **Contacts** — Track people and relationships with primary contact designation
--   **Communications** — Log all interactions: emails, calls, meetings, tasks, and follow-ups
--   **Email Integration** — Two-way sync with Gmail and Outlook. Send and receive emails directly in the CRM
--   **Email Reminders** — Scheduled task reminders via SMTP with configurable timing per user
--   **REST API** — Full API access with token authentication for integrations
--   **Multi-User Roles** — Role-based access control with admin, manager, and user roles with granular permissions
--   **Import/Export** — CSV import with field mapping wizard and export for clients, contacts, and communications
--   **Dashboard** — Overview of recent activity, pending tasks, and quick actions
--   **Dark Mode** — Easy on the eyes, day or night
--   **Self-Hosted** — Your data stays on your servers
--   **Modular** — Enable only what you need
 
 ## Quick Start
 
 ### Docker (Recommended)
 
 ```bash
-# Clone the repository
 git clone git@github.com:Lexaro-Software/pivor.git
 cd pivor
-
-# Start Pivor (migrations run automatically)
 docker compose up -d
-
 # Access at http://localhost:8080
 ```
 
 ### Local Development
 
 ```bash
-# Clone the repository
 git clone git@github.com:Lexaro-Software/pivor.git
 cd pivor
-
-# Install dependencies
-composer install
-npm install
-
-# Setup environment
+composer install && npm install
 cp .env.example .env
 php artisan key:generate
-
-# Run migrations and seed
 php artisan migrate --seed
-
-# Build assets
 npm run build
-
-# Start server
 php artisan serve
 ```
 
 ### Default Login
 
--   **Email:** admin@pivor.dev
--   **Password:** password
+- **Email:** admin@pivor.dev
+- **Password:** password
 
-> **Warning:** Change this immediately after first login.
+> ⚠️ Change this immediately after first login.
 
-## Tech Stack
+## Features
 
--   **Backend:** Laravel 12, PHP 8.2+
--   **Frontend:** Livewire 3, Tailwind CSS 4
--   **Database:** SQLite (default), MySQL, PostgreSQL
-
-## Requirements
-
--   PHP 8.2+
--   Composer 2+
--   Node.js 18+
--   SQLite / MySQL / PostgreSQL
-
-## Modules
-
-Pivor is built with a modular architecture:
-
-| Module            | Description               | Status   |
-| ----------------- | ------------------------- | -------- |
-| Clients           | Company management        | Core     |
-| Contacts          | People & relationships    | Core     |
-| Communications    | Interaction history       | Core     |
-| Email Integration | Gmail & Outlook sync      | Optional |
-
-## Configuration
-
-### Environment Variables
-
-```env
-APP_NAME=Pivor
-APP_URL=http://localhost:8080
-
-DB_CONNECTION=sqlite
-DB_DATABASE=/path/to/database.sqlite
-```
-
-### Email Integration (Optional)
-
-To enable Gmail/Outlook sync, add OAuth credentials:
-
-```env
-# Gmail - Get from Google Cloud Console
-GOOGLE_CLIENT_ID=your-client-id
-GOOGLE_CLIENT_SECRET=your-client-secret
-
-# Outlook - Get from Azure Portal
-MICROSOFT_CLIENT_ID=your-client-id
-MICROSOFT_CLIENT_SECRET=your-client-secret
-```
-
-See [Email Integration Docs](https://pivor.pages.dev/docs/email-integration.html) for setup instructions.
-
-### REST API
-
-To enable API access, users create tokens via `/api/tokens/create`. See [API Documentation](https://pivor.pages.dev/docs/api.html) for full endpoint reference.
+- **Clients & Contacts** — Manage companies and people
+- **Communications** — Log emails, calls, meetings, and tasks
+- **Email Integration** — Two-way sync with Gmail and Outlook
+- **REST API** — Token-based API for integrations
+- **Roles & Permissions** — Admin, manager, and user roles
+- **Import/Export** — CSV import with field mapping
+- **Dark Mode** — Easy on the eyes
 
 ## Contributing
 
-Pivor is open source under AGPL-3.0. Contributions welcome!
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+Contributions welcome! Fork, create a branch, and open a PR.
 
 ## License
 
-[AGPL-3.0](LICENSE) — Use it, modify it, share your improvements.
-
-## Support
-
--   Documentation: [pivor.pages.dev/docs](https://pivor.pages.dev/docs/)
--   Issues: [GitHub Issues](https://github.com/Lexaro-Software/pivor/issues)
+[AGPL-3.0](LICENSE)
