@@ -155,6 +155,11 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <div class="flex items-center justify-end space-x-2">
+                                    @if ($comm->type === 'email' && $comm->email_body_html)
+                                        <button wire:click="viewCommunication({{ $comm->id }})" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300">
+                                            View
+                                        </button>
+                                    @endif
                                     @if ($comm->is_task && $comm->status !== 'completed')
                                         <button wire:click="markComplete({{ $comm->id }})" class="text-green-600 hover:text-green-900 dark:text-green-400 dark:hover:text-green-300">
                                             Complete
@@ -198,4 +203,55 @@
 
     <!-- Import Modal -->
     @include('core::components.import-modal', ['title' => 'Import Communications', 'fields' => $importFields])
+
+    <!-- View Email Modal -->
+    @if($showViewModal && $viewingCommunication)
+        <div class="fixed inset-0 z-40" style="background-color: rgba(0,0,0,0.5);" wire:click="closeViewModal"></div>
+        <div class="fixed inset-0 z-50 flex items-center justify-center p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-h-[80vh] flex flex-col" style="width: 700px;">
+                <!-- Header -->
+                <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 flex-shrink-0" style="padding: 20px 24px;">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{{ $viewingCommunication->subject }}</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                            @if($viewingCommunication->direction === 'inbound')
+                                From: {{ $viewingCommunication->email_from }}
+                            @else
+                                To: {{ is_array($viewingCommunication->email_to) ? implode(', ', $viewingCommunication->email_to) : $viewingCommunication->email_to }}
+                            @endif
+                            <span class="mx-2">•</span>
+                            {{ $viewingCommunication->created_at->format('M d, Y \a\t g:i A') }}
+                        </p>
+                    </div>
+                    <button type="button" wire:click="closeViewModal" class="text-gray-400 hover:text-gray-500">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Body -->
+                <div class="overflow-y-auto flex-1 text-gray-900 dark:text-white" style="padding: 24px; --tw-text-opacity: 1;">
+                    <div class="text-sm" style="color: inherit !important;">
+                        <style>.email-body-content, .email-body-content * { color: inherit !important; }</style>
+                        <div class="email-body-content">{!! $viewingCommunication->email_body_html !!}</div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="border-t border-gray-200 dark:border-gray-700 flex-shrink-0" style="padding: 16px 24px;">
+                    <div class="flex justify-between items-center">
+                        <div class="text-sm text-gray-500 dark:text-gray-400">
+                            @if($viewingCommunication->contact)
+                                <a href="{{ route('contacts.show', $viewingCommunication->contact) }}" wire:navigate class="text-pivor-600 hover:text-pivor-700 dark:text-pivor-400">
+                                    {{ $viewingCommunication->contact->full_name }}
+                                </a>
+                            @endif
+                        </div>
+                        <button type="button" wire:click="closeViewModal" class="btn-secondary">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 </div>

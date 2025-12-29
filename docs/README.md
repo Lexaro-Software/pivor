@@ -15,6 +15,7 @@ Welcome to the Pivor documentation.
 
 ## Features
 
+- [Email Integration](features/email-integration.md) - Gmail & Outlook sync
 - [Import/Export](features/import-export.md) - CSV import and export functionality
 - [Roles & Permissions](features/roles-permissions.md) - Multi-user access control
 

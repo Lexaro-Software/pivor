@@ -35,4 +35,29 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Email Integration OAuth
+    |--------------------------------------------------------------------------
+    */
+
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect_uri' => env('GOOGLE_REDIRECT_URI', env('APP_URL') . '/email/oauth/google/callback'),
+    ],
+
+    'microsoft' => [
+        'client_id' => env('MICROSOFT_CLIENT_ID'),
+        'client_secret' => env('MICROSOFT_CLIENT_SECRET'),
+        'redirect_uri' => env('MICROSOFT_REDIRECT_URI', env('APP_URL') . '/email/oauth/microsoft/callback'),
+        'tenant_id' => env('MICROSOFT_TENANT_ID', 'common'),
+        'scopes' => [
+            'User.Read',
+            'Mail.Read',
+            'Mail.Send',
+            'offline_access',
+        ],
+    ],
+
 ];

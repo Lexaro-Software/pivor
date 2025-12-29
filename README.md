@@ -85,6 +85,7 @@ Most CRMs lock your data in the cloud, charge per-seat pricing, and force you in
 -   **Clients** — Manage companies and organisations with full contact details, status tracking, and notes
 -   **Contacts** — Track people and relationships with primary contact designation
 -   **Communications** — Log all interactions: emails, calls, meetings, tasks, and follow-ups
+-   **Email Integration** — Two-way sync with Gmail and Outlook. Send and receive emails directly in the CRM
 -   **Multi-User Roles** — Role-based access control with admin, manager, and user roles with granular permissions
 -   **Import/Export** — CSV import with field mapping wizard and export for clients, contacts, and communications
 -   **Dashboard** — Overview of recent activity, pending tasks, and quick actions
@@ -156,11 +157,12 @@ php artisan serve
 
 Pivor is built with a modular architecture:
 
-| Module         | Description            | Status |
-| -------------- | ---------------------- | ------ |
-| Clients        | Company management     | Core   |
-| Contacts       | People & relationships | Core   |
-| Communications | Interaction history    | Core   |
+| Module            | Description               | Status   |
+| ----------------- | ------------------------- | -------- |
+| Clients           | Company management        | Core     |
+| Contacts          | People & relationships    | Core     |
+| Communications    | Interaction history       | Core     |
+| Email Integration | Gmail & Outlook sync      | Optional |
 
 ## Configuration
 
@@ -173,6 +175,22 @@ APP_URL=http://localhost:8080
 DB_CONNECTION=sqlite
 DB_DATABASE=/path/to/database.sqlite
 ```
+
+### Email Integration (Optional)
+
+To enable Gmail/Outlook sync, add OAuth credentials:
+
+```env
+# Gmail - Get from Google Cloud Console
+GOOGLE_CLIENT_ID=your-client-id
+GOOGLE_CLIENT_SECRET=your-client-secret
+
+# Outlook - Get from Azure Portal
+MICROSOFT_CLIENT_ID=your-client-id
+MICROSOFT_CLIENT_SECRET=your-client-secret
+```
+
+See [Email Integration Docs](docs/features/email-integration.md) for setup instructions.
 
 ## Contributing
 

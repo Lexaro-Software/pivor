@@ -75,7 +75,7 @@ class Contact extends Model
 
     public function communications(): HasMany
     {
-        return $this->hasMany(Communication::class);
+        return $this->hasMany(Communication::class)->orderBy('created_at', 'desc');
     }
 
     public function assignedUser(): BelongsTo

@@ -7,9 +7,14 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "google/apiclient": "*",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
-        "livewire/livewire": "^3.7"
+        "league/oauth2-client": "*",
+        "league/oauth2-google": "*",
+        "livewire/livewire": "^3.7",
+        "microsoft/microsoft-graph": "*",
+        "thenetworg/oauth2-azure": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

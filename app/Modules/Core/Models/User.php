@@ -6,6 +6,7 @@ namespace App\Modules\Core\Models;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -59,6 +60,11 @@ class User extends Authenticatable
     public function roleModel(): BelongsTo
     {
         return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    public function emailAccounts(): HasMany
+    {
+        return $this->hasMany(\App\Modules\EmailIntegration\Models\UserEmailAccount::class);
     }
 
     // Role helpers - now check both legacy role column and new role relationship

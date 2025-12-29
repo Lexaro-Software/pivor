@@ -34,11 +34,19 @@ class Communication extends Model
         'created_by',
         'assigned_to',
         'status',
+        // Email fields
+        'email_message_id',
+        'email_from',
+        'email_to',
+        'email_cc',
+        'email_body_html',
     ];
 
     protected $casts = [
         'due_at' => 'datetime',
         'completed_at' => 'datetime',
+        'email_to' => 'array',
+        'email_cc' => 'array',
     ];
 
     protected static function boot(): void
@@ -74,6 +82,11 @@ class Communication extends Model
     public function assignedUser(): BelongsTo
     {
         return $this->belongsTo(User::class, 'assigned_to');
+    }
+
+    public function emailMessage(): BelongsTo
+    {
+        return $this->belongsTo(\App\Modules\EmailIntegration\Models\EmailMessage::class);
     }
 
     // Scopes

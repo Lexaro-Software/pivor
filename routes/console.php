@@ -1,8 +1,13 @@
 <?php
 
+use App\Modules\EmailIntegration\Jobs\SyncInboundEmailsJob;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schedule;
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+// Email sync - runs every 5 minutes
+Schedule::job(new SyncInboundEmailsJob)->everyFiveMinutes();

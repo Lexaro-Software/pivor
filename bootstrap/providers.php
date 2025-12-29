@@ -8,4 +8,5 @@ return [
     App\Modules\Clients\Providers\ClientsServiceProvider::class,
     App\Modules\Contacts\Providers\ContactsServiceProvider::class,
     App\Modules\Communications\Providers\CommunicationsServiceProvider::class,
+    App\Modules\EmailIntegration\Providers\EmailIntegrationServiceProvider::class,
 ];

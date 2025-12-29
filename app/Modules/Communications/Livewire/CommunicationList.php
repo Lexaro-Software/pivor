@@ -20,6 +20,10 @@ class CommunicationList extends Component
     public string $sortField = 'created_at';
     public string $sortDirection = 'desc';
 
+    // View email modal
+    public bool $showViewModal = false;
+    public ?Communication $viewingCommunication = null;
+
     protected $queryString = [
         'search' => ['except' => ''],
         'type' => ['except' => ''],
@@ -55,6 +59,18 @@ class CommunicationList extends Component
         $communication->markAsCompleted();
 
         session()->flash('message', 'Task marked as completed.');
+    }
+
+    public function viewCommunication(int $id): void
+    {
+        $this->viewingCommunication = Communication::with(['contact', 'client'])->findOrFail($id);
+        $this->showViewModal = true;
+    }
+
+    public function closeViewModal(): void
+    {
+        $this->showViewModal = false;
+        $this->viewingCommunication = null;
     }
 
     // Import implementation
