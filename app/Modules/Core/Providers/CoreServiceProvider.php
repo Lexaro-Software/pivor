@@ -3,6 +3,7 @@
 namespace App\Modules\Core\Providers;
 
 use App\Modules\Core\Livewire\Dashboard;
+use App\Modules\Core\Livewire\NotificationSettings;
 use App\Modules\Core\Livewire\RoleForm;
 use App\Modules\Core\Livewire\RoleList;
 use App\Modules\Core\Livewire\UserForm;
@@ -31,6 +32,7 @@ class CoreServiceProvider extends ServiceProvider
 
         // Register Livewire components
         Livewire::component('dashboard', Dashboard::class);
+        Livewire::component('notification-settings', NotificationSettings::class);
         Livewire::component('role-form', RoleForm::class);
         Livewire::component('role-list', RoleList::class);
         Livewire::component('user-form', UserForm::class);

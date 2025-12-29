@@ -7,6 +7,7 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -65,6 +66,16 @@ class User extends Authenticatable
     public function emailAccounts(): HasMany
     {
         return $this->hasMany(\App\Modules\EmailIntegration\Models\UserEmailAccount::class);
+    }
+
+    public function notificationSettings(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(UserNotificationSetting::class);
+    }
+
+    public function getNotificationSettings(): UserNotificationSetting
+    {
+        return UserNotificationSetting::getOrCreateForUser($this);
     }
 
     // Role helpers - now check both legacy role column and new role relationship

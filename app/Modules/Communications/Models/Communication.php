@@ -40,11 +40,14 @@ class Communication extends Model
         'email_to',
         'email_cc',
         'email_body_html',
+        // Reminder
+        'reminder_sent_at',
     ];
 
     protected $casts = [
         'due_at' => 'datetime',
         'completed_at' => 'datetime',
+        'reminder_sent_at' => 'datetime',
         'email_to' => 'array',
         'email_cc' => 'array',
     ];

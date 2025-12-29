@@ -2,7 +2,7 @@
 
 ## v1.1 (Next Release)
 
-- [ ] **Email Reminders** - Scheduled email notifications for task follow-ups via custom SMTP configuration
+- [x] **Email Reminders** - Scheduled email notifications for task follow-ups via custom SMTP configuration
 - [x] **Email Integration** - Two-way sync with Gmail and Outlook. Send emails directly from contact pages, automatically sync incoming/outgoing emails with matched contacts
 - [x] **Import/Export** - CSV import and export for clients, contacts, and communications
 - [ ] **REST API** - Full API for integrations and mobile apps

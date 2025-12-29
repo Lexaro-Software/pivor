@@ -1,6 +1,7 @@
 <?php
 
 use App\Modules\Core\Livewire\Dashboard;
+use App\Modules\Core\Livewire\NotificationSettings;
 use App\Modules\Core\Livewire\RoleForm;
 use App\Modules\Core\Livewire\RoleList;
 use App\Modules\Core\Livewire\UserForm;
@@ -18,6 +19,7 @@ Route::get('/', function () {
 // Authenticated routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::get('/settings/notifications', NotificationSettings::class)->name('settings.notifications');
 
     // Admin-only routes
     Route::middleware(['role:admin'])->group(function () {

@@ -86,6 +86,7 @@ Most CRMs lock your data in the cloud, charge per-seat pricing, and force you in
 -   **Contacts** — Track people and relationships with primary contact designation
 -   **Communications** — Log all interactions: emails, calls, meetings, tasks, and follow-ups
 -   **Email Integration** — Two-way sync with Gmail and Outlook. Send and receive emails directly in the CRM
+-   **Email Reminders** — Scheduled task reminders via SMTP with configurable timing per user
 -   **Multi-User Roles** — Role-based access control with admin, manager, and user roles with granular permissions
 -   **Import/Export** — CSV import with field mapping wizard and export for clients, contacts, and communications
 -   **Dashboard** — Overview of recent activity, pending tasks, and quick actions
