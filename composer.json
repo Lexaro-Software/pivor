@@ -9,6 +9,7 @@
         "php": "^8.2",
         "google/apiclient": "*",
         "laravel/framework": "^12.0",
+        "laravel/sanctum": "^4.2",
         "laravel/tinker": "^2.10.1",
         "league/oauth2-client": "*",
         "league/oauth2-google": "*",
