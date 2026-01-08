@@ -14,7 +14,7 @@ cd pivor
 git pull origin main
 
 # Rebuild and restart the container
-docker compose build --no-cache
+docker compose build
 docker compose up -d
 ```
 
