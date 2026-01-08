@@ -5,6 +5,7 @@ Welcome to the Pivor documentation.
 ## Getting Started
 
 - [Installation](installation.md) - How to install and run Pivor
+- [Updating](update.md) - How to update to the latest version
 - [Configuration](configuration.md) - Environment variables and settings
 
 ## Modules
