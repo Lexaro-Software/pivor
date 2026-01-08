@@ -45,6 +45,26 @@ php artisan serve
 
 > ⚠️ Change this immediately after first login.
 
+## Updating
+
+### Docker
+
+```bash
+git pull origin main
+docker compose build --no-cache
+docker compose up -d
+```
+
+### Local
+
+```bash
+git stash && git pull origin main && git stash pop
+composer install && npm install && npm run build
+php artisan migrate && php artisan config:cache
+```
+
+See the [full update guide](docs/update.md) for troubleshooting.
+
 ## Features
 
 - **Clients & Contacts** — Manage companies and people
